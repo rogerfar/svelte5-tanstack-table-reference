@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Button from '$lib/components/button.svelte';
     import { type UserProfile } from '$lib/services/user-profile';
     import { FlexRender, renderComponent } from '$lib/table';
     import { createColumnHelper, createSvelteTable, getCoreRowModel } from '$lib/table/index';
@@ -22,6 +23,11 @@
             header: 'Birthday Countdown',
             // Use renderComponent to render a Svelte component in a cell.
             cell: ({ cell }) => renderComponent(DataTableCellCountdown, { value: cell.getValue() })
+        }),
+        colHelp.accessor('birthdate', {
+            header: 'Birthday Countdown',
+            // Use renderComponent to render a Svelte component in a cell.
+            cell: ({ cell }) => renderComponent(Button, { children: cell.getValue() })
         })
     ];
 
